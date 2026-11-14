@@ -1,0 +1,111 @@
+app/
+├── layout.tsx                 # Layout racine (obligatoire) : header, footer, providers
+├── page.tsx                   # 🏠 Accueil : hero, recettes mises en avant, catégories populaires
+├── loading.tsx                # Skeleton global de chargement
+├── error.tsx                  # Error boundary globale
+├── not-found.tsx              # Page 404 personnalisée
+│
+├── (recettes)/                # Route group : n'affecte pas l'URL, permet de partager un layout
+│   ├── layout.tsx            # Layout commun aux pages de recettes (ex: barre de filtres)
+│   ├── recettes/
+│   │   ├── page.tsx          # 📋 Liste de toutes les recettes (grille, filtres, tri)
+│   │   └── [slug]/
+│   │       ├── page.tsx      # 🍽️ Détail d'une recette (ingrédients, étapes, allergènes)
+│   │       ├── loading.tsx   # Skeleton spécifique au détail d'une recette
+│   │       └── not-found.tsx # 404 si le slug n'existe pas
+│   ├── categories/
+│   │   ├── page.tsx          # 🗂️ Liste de toutes les catégories
+│   │   └── [slug]/
+│   │       └── page.tsx      # Recettes filtrées par catégorie (ex: /categories/dessert)
+│   └── tags/
+│       ├── page.tsx          # 🏷️ Liste de tous les tags (optionnel, peut être un nuage)
+│       └── [slug]/
+│           └── page.tsx      # Recettes filtrées par tag (ex: /tags/vegetarien)
+│
+├── recherche/
+│   └── page.tsx              # 🔍 Page de recherche avancée (par titre, ingrédient, tag)
+│
+├── (utilisateur)/            # Route group pour les pages liées au compte
+│   ├── layout.tsx            # Layout avec navigation secondaire (ex: sidebar compte)
+│   ├── favoris/
+│   │   └── page.tsx          # ❤️ Recettes sauvegardées par l'utilisateur (si fonctionnalité)
+│   └── mes-recettes/
+│       └── page.tsx          # 👨‍🍳 Recettes créées par l'utilisateur (CRUD)
+│
+└── (admin)/                  # Route group pour l'administration (optionnel)
+    └── admin/
+        ├── layout.tsx        # Layout admin (protégé par auth)
+        ├── ingredients/
+        │   └── page.tsx      # Gestion des ingrédients (référentiel)
+        ├── allergenes/
+        │   └── page.tsx      # Gestion des allergènes (référentiel INCO)
+        └── recettes/
+            └── page.tsx      # Modération / gestion de toutes les recettes
+📄 Justification détaillée de chaque page
+1. app/page.tsx — Accueil
+Rôle : Vitrine de l'application. Elle doit donner envie d'explorer.
+
+Contenu : Un hero avec une recette à la une, un carrousel de recettes populaires, et un accès rapide aux catégories principales (Dessert, Plat, Entrée...). C'est une page Server Component qui fetch les données directement via Prisma pour un rendu SEO optimal.
+
+2. app/(recettes)/recettes/page.tsx — Liste des recettes
+Rôle : Le catalogue complet, avec pagination ou infinite scroll.
+
+Fonctionnalités : Affichage en grille de RecipeCard, filtres par catégorie et tags, tri (temps de préparation, difficulté, calories). L'utilisation du route group (recettes) permet de partager un layout commun (par exemple, une barre de filtres latérale) sans polluer l'URL.
+
+3. app/(recettes)/recettes/[slug]/page.tsx — Détail d'une recette
+Rôle : Cœur de l'expérience utilisateur. C'est une route dynamique [slug] qui exploite votre champ slug unique.
+
+Contenu :
+
+En-tête : titre, image, temps (prepTime, cookTime), portions (servings), difficulté.
+
+Section Ingrédients : liste avec amount et unit (traduits via le mapping UNIT_LABELS suggéré précédemment).
+
+Section Allergènes : badges visuels pour chaque AllergenCode contenu dans les ingrédients de la recette (crucial pour la sécurité alimentaire).
+
+Section Étapes : liste ordonnée des Step avec instruction et image optionnelle.
+
+Badges des Catégories et Tags associés, cliquables pour rebondir vers les pages filtrées.
+
+4. app/(recettes)/categories/page.tsx et .../[slug]/page.tsx
+Liste : Affiche toutes les Category (Dessert, Entrée, Plat, Apéritif...) sous forme de cartes.
+
+Détail : Route /categories/[slug] (ex: /categories/dessert) qui liste les recettes appartenant à cette catégorie. C'est une page de navigation structurelle, essentielle pour le SEO et l'exploration.
+
+5. app/(recettes)/tags/page.tsx et .../[slug]/page.tsx
+Liste : Optionnelle, peut être un simple nuage de tags sur la page de recherche.
+
+Détail : Route /tags/[slug] (ex: /tags/vegetarien, /tags/sans-gluten). Contrairement aux catégories, les tags sont transversaux : ils permettent des combinaisons fines (ex: /tags/rapide + filtre catégorie "Dessert"). Cette page est donc très utile pour les filtres croisés.
+
+6. app/recherche/page.tsx — Recherche
+Rôle : Page dédiée à la recherche avancée. Elle peut inclure une barre de recherche par titre, mais aussi des filtres par ingrédient (ex: "que puis-je faire avec des œufs et de la farine ?"), par allergène (exclure le gluten), ou par temps de préparation. L'URL peut refléter les filtres via des query params (?q=...&tag=...).
+
+7. app/(utilisateur)/favoris/page.tsx — Favoris (si authentification)
+Rôle : Permet à un utilisateur connecté de retrouver ses recettes sauvegardées. La page fetch les relations User ↔ Recipe (à ajouter au schéma si cette fonctionnalité est retenue). Le route group (utilisateur) isole ces pages derrière une protection d'authentification via un layout.tsx qui redirige si non connecté.
+
+8. app/(utilisateur)/mes-recettes/page.tsx — CRUD utilisateur
+Rôle : Formulaire de création et d'édition de recettes. C'est ici que l'utilisateur remplit title, description, ajoute des Ingredient, des Step, et sélectionne Category / Tag. Cette page est principalement un Client Component (formulaires interactifs), tandis que la lecture des données peut rester côté serveur.
+
+9. app/(admin)/... — Pages d'administration
+Rôle : Gestion du référentiel. Votre schéma distingue les ingrédients au sein d'une recette (Ingredient) des allergènes globaux (Allergen). Une page /admin/allergenes est utile pour vérifier que la table Allergen est correctement seedée avec les 14 codes INCO. Une page /admin/ingredients pourrait lister tous les slug uniques d'ingrédients pour éviter les doublons (ex: "farine-de-ble" vs "farine de blé"). Ces pages sont protégées par un layout admin.
+
+
+
+🧩 Fichiers spéciaux à ne pas oublier
+L'App Router repose sur des conventions de fichiers qui améliorent l'UX et la robustesse :
+
+loading.tsx : À placer dans les dossiers de routes lentes (ex: recettes/[slug]/). Next.js affichera automatiquement un skeleton pendant le chargement des données serveur.
+
+error.tsx : Dans chaque route group, pour capturer les erreurs de fetch Prisma et proposer un bouton "Réessayer" sans casser toute l'application.
+
+not-found.tsx : Indispensable dans recettes/[slug]/ pour gérer proprement le cas où un slug n'existe pas (au lieu d'une erreur 500).
+
+💡 Bonnes pratiques à appliquer
+Server Components par défaut : Toutes les pages qui lisent des données (accueil, listes, détail) doivent être des Server Components asynchrones qui appellent Prisma directement. Les Client Components ('use client') sont réservés aux parties interactives (filtres, formulaires, boutons favoris).
+
+Colocation : Placez les composants spécifiques à une page dans un sous-dossier _components/ à côté du page.tsx. Par exemple, recettes/[slug]/_components/IngredientList.tsx et StepList.tsx. Le préfixe _ empêche Next.js de les considérer comme des routes.
+
+Route groups (...) : Utilisez-les pour partager des layouts (ex: (recettes) pour la barre de filtres, (utilisateur) pour la sidebar compte) sans créer de segments d'URL supplémentaires.
+
+
+

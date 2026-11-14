@@ -1,0 +1,231 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  // ⚠️ L'URL se configure dans prisma.config.ts (Prisma 7)
+}
+
+/////////////////////////////
+/////     RECETTES     //////
+/////////////////////////////
+
+model Recipe {
+  id           String     @id @default(cuid())
+  SlugRecipe   String     @unique
+  displayOrder Int                  // ordre d'affichage
+  title        String
+  description  String
+  image        String?
+  prepTime     Int        // ⏱️ Temps de préparation (minutes)
+  cookTime     Int        // 🔥 Temps de cuisson (minutes)
+  servings     Int        // 🍽️ Nombre de portions
+  difficulty   Difficulty @default(MEDIUM)
+  calories     Int?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  // Relations de structure
+    recipeIngredients RecipeIngredient[]
+    steps        Step[]
+  categories   CategoryToRecipe[]
+  tags         TagToRecipe[]
+
+  @@index([title])
+  @@map("recipes")
+
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+////////////////////////////////////////////////////////////////
+/////     INGRÉDIENTS & ÉTAPES (Détails de la recette)     /////
+////////////////////////////////////////////////////////////////
+
+enum Unit {
+  GRAM         // g
+  KILOGRAM     // kg
+  MILLILITER   // ml
+  CENTILITER   // cl
+  LITER        // l
+  TEASPOON     // c. à c. / tsp
+  TABLESPOON   // c. à s. / tbsp
+  CUP          // tasse
+  PIECE        // unité (œuf, fruit...)
+  PINCH        // pincée
+  CLOVE        // gousse (ail)
+  SLICE        // tranche
+  BUNCH        // botte (persil, radis...)
+}
+
+enum IngredientType {
+LEGUME //  VEGETABLE     // Légume frais
+FRUIT//  FRUIT         // Fruit frais
+VIANDE//  MEAT          // Viande
+POISSON//  FISH          // Poisson
+FRUIT_DE_MER//  SEAFOOD       // Crustacés et fruits de mer (crevettes, moules...)
+OEUF//  EGG           // Œufs et ovoproduits
+PRODUITS_LAITIERS//  DAIRY         // Produits laitiers (lait, fromage, crème, beurre...)
+FECULENT//  GRAIN         // Céréales, pâtes, riz, pain, féculents
+LEGUMINEUSE//  LEGUME        // Légumineuses (lentilles, pois chiches, haricots secs)
+FRUIT_A_COQUE_GRAINES//  NUT           // Fruits à coque et graines (amandes, noix, sésame...)
+EPICE//  SPICE         // Épices en poudre ou entières
+HERBE//  HERB          // Herbes fraîches ou séchées (persil, basilic...)
+MATIERE_GRASSE//  FAT           // Matières grasses (huiles, saindoux, margarine)
+SUCRE//  SWEETENER     // Sucre, miel, sirop d'érable, édulcorants
+CONDIMENT//  CONDIMENT     // Vinaigre, moutarde, sauces (soja, nuoc-mam), sel, poivre
+LIQUIDR//  LIQUID        // Bouillons, eau, vin, bière (liquides de cuisson/recette)
+AUTRE//  OTHER         // Additifs, levure, arômes, gélatine
+}
+
+model Ingredient {            // catalogue, réutilisable
+  id        String  @id @default(cuid())
+  slugIngredient      String  @unique
+  displayOrder Int                  // ordre d'affichage
+  type      IngredientType?
+  name      String  
+  image     String?
+  allergens IngredientAllergen[]
+  recipes   RecipeIngredient[]
+  @@map("ingredients")
+}
+
+model RecipeIngredient {      // ligne de recette
+  id           String     @id @default(cuid())
+  recipeId     String
+  ingredientId String
+  amount       Float?
+  unit         Unit?
+  note         String?      // "finement haché", "T45"
+  position     Int          // ordre d'affichage
+  recipe       Recipe     @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Restrict)
+
+  @@unique([recipeId, ingredientId])
+  @@index([ingredientId])
+  @@map("recipe_ingredients")
+}
+model Step {
+  id          String  @id @default(cuid())
+  stepNumber  Int
+  instruction String
+  image       String?
+  recipeId    String
+  recipe      Recipe  @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+@@unique([recipeId, stepNumber])
+  @@map("steps")
+}
+
+/////////////////////////////////////////////////
+/////     TAXONOMIE (Catégories & Tags)     /////
+/////////////////////////////////////////////////
+
+// 🗂️ Catégories : classement PRINCIPAL et STRUCTUREL d'une recette.
+// Une recette appartient généralement à une ou deux catégories maximum
+// (ex: "Dessert", "Plat principal", "Entrée", "Boisson").
+// Cela sert à la navigation principale de l'application (menus, filtres).
+model Category {
+  id      String             @id @default(cuid())
+  name    String             @unique       // ex: "Dessert", "Plat principal", "Apéritif"
+  slugCategory    String             @unique       // ex: "dessert", "plat-principal", "aperitif"
+  image   String?                          // ex: "dessert.jpg", "plat.jpg"
+  recipes CategoryToRecipe[]
+
+  @@map("categories")
+}
+
+model CategoryToRecipe {
+  recipeId   String
+  categoryId String
+  recipe     Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([recipeId, categoryId])
+  @@map("categories_recipes")
+}
+
+// 🏷️ Tags : attributs TRANSVERSAUX et LIBRES d'une recette.
+// Contrairement aux catégories (hiérarchiques et limitées), les tags sont
+// nombreux, plats et cumulables. Ils servent à la recherche fine et aux filtres.
+// Exemples : "végétarien", "sans-gluten", "rapide", "économique", "hiver",
+//            "comfort-food", "meal-prep", "enfant-friendly", "épicé"...
+model Tag {
+  id      String        @id @default(cuid())
+  name    String        @unique       // ex: "Végétarien", "Sans gluten", "Rapide"
+  slugTag    String        @unique       // ex: "vegetarien", "sans-gluten", "rapide"
+  recipes TagToRecipe[]
+
+  @@map("tags")
+}
+
+model TagToRecipe {
+  recipeId String
+  tagId    String
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  tag      Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([recipeId, tagId])
+  @@map("tags_recipes")
+}
+
+/////////////////////////////////////////////////
+/////     ALLERGÈNES (Réglementation INCO)   /////
+/////////////////////////////////////////////////
+
+// ⚠️ Les 14 allergènes à déclaration obligatoire (règlement européen INCO).
+// Cette liste est FIXE et encadrée par la loi : ne pas la modifier librement.
+// Source : Règlement (UE) n° 1169/2011, annexe II.
+enum AllergenCode {
+  GLUTEN       // Céréales contenant du gluten (blé, seigle, orge, avoine...)
+  CRUSTACEANS  // Crustacés (crevette, crabe, homard...)
+  EGGS         // Œufs et produits à base d'œufs
+  FISH         // Poissons et produits à base de poissons
+  PEANUTS      // Arachides
+  SOYBEANS     // Soja et produits à base de soja
+  MILK         // Lait et produits laitiers (y compris lactose)
+  NUTS         // Fruits à coque (amande, noisette, noix...)
+  CELERY       // Céleri et produits à base de céleri
+  MUSTARD      // Moutarde et produits à base de moutarde
+  SESAME       // Graines de sésame et produits à base de sésame
+  SULPHITES    // Anhydride sulfureux et sulfites (> 10 mg/kg ou 10 ml/L)
+  LUPIN        // Lupin et produits à base de lupin
+  MOLLUSCS     // Mollusques (moule, huître, calamar...)
+}
+
+// 📋 Table de référence des allergènes.
+// On stocke le code légal + un libellé FR + éventuellement une icône
+// pour l'affichage. Cette table est seedée une seule fois (via prisma/seed.ts).
+model Allergen {
+  id          String               @id @default(cuid())
+  displayOrder Int                  // ordre d'affichage
+  code        AllergenCode         @unique   // code légal INCO
+  name        String                        // libellé affichable (FR)
+  description String?                       // description facultative (FR)
+  icon        String?                       // ex: "allergen-gluten.svg"
+  ingredients IngredientAllergen[]
+
+  @@map("allergens")
+}
+
+// 🔗 Table de jointure : quel ingrédient contient quel allergène.
+// ⚠️ Un ingrédient peut cumuler plusieurs allergènes (ex: "pâte feuilletée"
+// contient GLUTEN + MILK). Et un allergène concerne plusieurs ingrédients
+// (ex: MILK est présent dans "lait", "beurre", "crème", "fromage"...).
+model IngredientAllergen {
+  ingredientId String
+  allergenId   String
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Cascade)
+  allergen     Allergen   @relation(fields: [allergenId], references: [id], onDelete: Cascade)
+
+  @@id([ingredientId, allergenId])
+  @@map("ingredients_allergens")
+}
