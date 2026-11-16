@@ -7,7 +7,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   // ⚠️ L'URL se configure dans prisma.config.ts (Prisma 7)
 }
 
@@ -17,7 +17,7 @@ datasource db {
 
 model Recipe {
   id           String     @id @default(cuid())
-  SlugRecipe   String     @unique
+  slugRecipe   String     @unique
   displayOrder Int                  // ordre d'affichage
   title        String
   description  String
@@ -37,6 +37,7 @@ model Recipe {
   tags         TagToRecipe[]
 
   @@index([title])
+    @@index([displayOrder])  
   @@map("recipes")
 
 }
@@ -72,18 +73,18 @@ LEGUME //  VEGETABLE     // Légume frais
 FRUIT//  FRUIT         // Fruit frais
 VIANDE//  MEAT          // Viande
 POISSON//  FISH          // Poisson
-FRUIT_DE_MER//  SEAFOOD       // Crustacés et fruits de mer (crevettes, moules...)
+FRUITS_DE_MER//  SEAFOOD       // Crustacés et fruits de mer (crevettes, moules...)
 OEUF//  EGG           // Œufs et ovoproduits
 PRODUITS_LAITIERS//  DAIRY         // Produits laitiers (lait, fromage, crème, beurre...)
 FECULENT//  GRAIN         // Céréales, pâtes, riz, pain, féculents
 LEGUMINEUSE//  LEGUME        // Légumineuses (lentilles, pois chiches, haricots secs)
-FRUIT_A_COQUE_GRAINES//  NUT           // Fruits à coque et graines (amandes, noix, sésame...)
+FRUITS_A_COQUE_GRAINES//  NUT           // Fruits à coque et graines (amandes, noix, sésame...)
 EPICE//  SPICE         // Épices en poudre ou entières
 HERBE//  HERB          // Herbes fraîches ou séchées (persil, basilic...)
 MATIERE_GRASSE//  FAT           // Matières grasses (huiles, saindoux, margarine)
 SUCRE//  SWEETENER     // Sucre, miel, sirop d'érable, édulcorants
 CONDIMENT//  CONDIMENT     // Vinaigre, moutarde, sauces (soja, nuoc-mam), sel, poivre
-LIQUIDR//  LIQUID        // Bouillons, eau, vin, bière (liquides de cuisson/recette)
+LIQUIDE//  LIQUID        // Bouillons, eau, vin, bière (liquides de cuisson/recette)
 AUTRE//  OTHER         // Additifs, levure, arômes, gélatine
 }
 
@@ -94,9 +95,22 @@ model Ingredient {            // catalogue, réutilisable
   type      IngredientType?
   name      String  
   image     String?
+
+  // ========== NUTRITION (pour 100 g) ==========
+  calories      Float?   // kcal pour 100 g
+  protein       Float?   // protéines (g)
+  carbohydrates Float?   // glucides (g)
+  sugars        Float?   // dont sucres (g)
+  fat           Float?   // lipides (g)
+  saturatedFat  Float?   // dont saturés (g)
+  fiber         Float?   // fibres (g)
+  salt          Float?   // sel (g)  (ou sodium si tu préfères)
+  
   allergens IngredientAllergen[]
   recipes   RecipeIngredient[]
-  @@map("ingredients")
+ 
+   @@index([displayOrder]) 
+    @@map("ingredients")
 }
 
 model RecipeIngredient {      // ligne de recette
@@ -112,8 +126,10 @@ model RecipeIngredient {      // ligne de recette
 
   @@unique([recipeId, ingredientId])
   @@index([ingredientId])
+    @@index([recipeId, position])   
   @@map("recipe_ingredients")
 }
+
 model Step {
   id          String  @id @default(cuid())
   stepNumber  Int
@@ -213,7 +229,8 @@ model Allergen {
   icon        String?                       // ex: "allergen-gluten.svg"
   ingredients IngredientAllergen[]
 
-  @@map("allergens")
+  @@index([displayOrder]) 
+   @@map("allergens")
 }
 
 // 🔗 Table de jointure : quel ingrédient contient quel allergène.

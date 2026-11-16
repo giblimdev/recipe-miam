@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Recipe: 'Recipe',
   Ingredient: 'Ingredient',
+  RecipeIngredient: 'RecipeIngredient',
   Step: 'Step',
   Category: 'Category',
   CategoryToRecipe: 'CategoryToRecipe',
@@ -69,6 +70,9 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
  */
 
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
+  ReadUncommitted: 'ReadUncommitted',
+  ReadCommitted: 'ReadCommitted',
+  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 } as const)
 
@@ -77,8 +81,9 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const RecipeScalarFieldEnum = {
   id: 'id',
+  slugRecipe: 'slugRecipe',
+  displayOrder: 'displayOrder',
   title: 'title',
-  slug: 'slug',
   description: 'description',
   image: 'image',
   prepTime: 'prepTime',
@@ -95,16 +100,35 @@ export type RecipeScalarFieldEnum = (typeof RecipeScalarFieldEnum)[keyof typeof 
 
 export const IngredientScalarFieldEnum = {
   id: 'id',
-  slug: 'slug',
+  slugIngredient: 'slugIngredient',
+  displayOrder: 'displayOrder',
+  type: 'type',
   name: 'name',
-  description: 'description',
   image: 'image',
-  amount: 'amount',
-  unit: 'unit',
-  recipeId: 'recipeId'
+  calories: 'calories',
+  protein: 'protein',
+  carbohydrates: 'carbohydrates',
+  sugars: 'sugars',
+  fat: 'fat',
+  saturatedFat: 'saturatedFat',
+  fiber: 'fiber',
+  salt: 'salt'
 } as const
 
 export type IngredientScalarFieldEnum = (typeof IngredientScalarFieldEnum)[keyof typeof IngredientScalarFieldEnum]
+
+
+export const RecipeIngredientScalarFieldEnum = {
+  id: 'id',
+  recipeId: 'recipeId',
+  ingredientId: 'ingredientId',
+  amount: 'amount',
+  unit: 'unit',
+  note: 'note',
+  position: 'position'
+} as const
+
+export type RecipeIngredientScalarFieldEnum = (typeof RecipeIngredientScalarFieldEnum)[keyof typeof RecipeIngredientScalarFieldEnum]
 
 
 export const StepScalarFieldEnum = {
@@ -121,7 +145,7 @@ export type StepScalarFieldEnum = (typeof StepScalarFieldEnum)[keyof typeof Step
 export const CategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  slug: 'slug',
+  slugCategory: 'slugCategory',
   image: 'image'
 } as const
 
@@ -139,7 +163,7 @@ export type CategoryToRecipeScalarFieldEnum = (typeof CategoryToRecipeScalarFiel
 export const TagScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  slug: 'slug'
+  slugTag: 'slugTag'
 } as const
 
 export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
@@ -155,8 +179,10 @@ export type TagToRecipeScalarFieldEnum = (typeof TagToRecipeScalarFieldEnum)[key
 
 export const AllergenScalarFieldEnum = {
   id: 'id',
+  displayOrder: 'displayOrder',
   code: 'code',
   name: 'name',
+  description: 'description',
   icon: 'icon'
 } as const
 
@@ -177,6 +203,14 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
 export const NullsOrder = {

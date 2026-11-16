@@ -10,6 +10,7 @@
  */
 export type * from './models/Recipe'
 export type * from './models/Ingredient'
+export type * from './models/RecipeIngredient'
 export type * from './models/Step'
 export type * from './models/Category'
 export type * from './models/CategoryToRecipe'

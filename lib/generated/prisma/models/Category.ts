@@ -27,21 +27,21 @@ export type AggregateCategory = {
 export type CategoryMinAggregateOutputType = {
   id: string | null
   name: string | null
-  slug: string | null
+  slugCategory: string | null
   image: string | null
 }
 
 export type CategoryMaxAggregateOutputType = {
   id: string | null
   name: string | null
-  slug: string | null
+  slugCategory: string | null
   image: string | null
 }
 
 export type CategoryCountAggregateOutputType = {
   id: number
   name: number
-  slug: number
+  slugCategory: number
   image: number
   _all: number
 }
@@ -50,21 +50,21 @@ export type CategoryCountAggregateOutputType = {
 export type CategoryMinAggregateInputType = {
   id?: true
   name?: true
-  slug?: true
+  slugCategory?: true
   image?: true
 }
 
 export type CategoryMaxAggregateInputType = {
   id?: true
   name?: true
-  slug?: true
+  slugCategory?: true
   image?: true
 }
 
 export type CategoryCountAggregateInputType = {
   id?: true
   name?: true
-  slug?: true
+  slugCategory?: true
   image?: true
   _all?: true
 }
@@ -144,7 +144,7 @@ export type CategoryGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 export type CategoryGroupByOutputType = {
   id: string
   name: string
-  slug: string
+  slugCategory: string
   image: string | null
   _count: CategoryCountAggregateOutputType | null
   _min: CategoryMinAggregateOutputType | null
@@ -172,7 +172,7 @@ export type CategoryWhereInput = {
   NOT?: Prisma.CategoryWhereInput | Prisma.CategoryWhereInput[]
   id?: Prisma.StringFilter<"Category"> | string
   name?: Prisma.StringFilter<"Category"> | string
-  slug?: Prisma.StringFilter<"Category"> | string
+  slugCategory?: Prisma.StringFilter<"Category"> | string
   image?: Prisma.StringNullableFilter<"Category"> | string | null
   recipes?: Prisma.CategoryToRecipeListRelationFilter
 }
@@ -180,7 +180,7 @@ export type CategoryWhereInput = {
 export type CategoryOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugCategory?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   recipes?: Prisma.CategoryToRecipeOrderByRelationAggregateInput
 }
@@ -188,18 +188,18 @@ export type CategoryOrderByWithRelationInput = {
 export type CategoryWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   name?: string
-  slug?: string
+  slugCategory?: string
   AND?: Prisma.CategoryWhereInput | Prisma.CategoryWhereInput[]
   OR?: Prisma.CategoryWhereInput[]
   NOT?: Prisma.CategoryWhereInput | Prisma.CategoryWhereInput[]
   image?: Prisma.StringNullableFilter<"Category"> | string | null
   recipes?: Prisma.CategoryToRecipeListRelationFilter
-}, "id" | "name" | "slug">
+}, "id" | "name" | "slugCategory">
 
 export type CategoryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugCategory?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.CategoryCountOrderByAggregateInput
   _max?: Prisma.CategoryMaxOrderByAggregateInput
@@ -212,14 +212,14 @@ export type CategoryScalarWhereWithAggregatesInput = {
   NOT?: Prisma.CategoryScalarWhereWithAggregatesInput | Prisma.CategoryScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Category"> | string
   name?: Prisma.StringWithAggregatesFilter<"Category"> | string
-  slug?: Prisma.StringWithAggregatesFilter<"Category"> | string
+  slugCategory?: Prisma.StringWithAggregatesFilter<"Category"> | string
   image?: Prisma.StringNullableWithAggregatesFilter<"Category"> | string | null
 }
 
 export type CategoryCreateInput = {
   id?: string
   name: string
-  slug: string
+  slugCategory: string
   image?: string | null
   recipes?: Prisma.CategoryToRecipeCreateNestedManyWithoutCategoryInput
 }
@@ -227,7 +227,7 @@ export type CategoryCreateInput = {
 export type CategoryUncheckedCreateInput = {
   id?: string
   name: string
-  slug: string
+  slugCategory: string
   image?: string | null
   recipes?: Prisma.CategoryToRecipeUncheckedCreateNestedManyWithoutCategoryInput
 }
@@ -235,7 +235,7 @@ export type CategoryUncheckedCreateInput = {
 export type CategoryUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugCategory?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipes?: Prisma.CategoryToRecipeUpdateManyWithoutCategoryNestedInput
 }
@@ -243,7 +243,7 @@ export type CategoryUpdateInput = {
 export type CategoryUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugCategory?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipes?: Prisma.CategoryToRecipeUncheckedUpdateManyWithoutCategoryNestedInput
 }
@@ -251,42 +251,42 @@ export type CategoryUncheckedUpdateInput = {
 export type CategoryCreateManyInput = {
   id?: string
   name: string
-  slug: string
+  slugCategory: string
   image?: string | null
 }
 
 export type CategoryUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugCategory?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CategoryUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugCategory?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CategoryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugCategory?: Prisma.SortOrder
   image?: Prisma.SortOrder
 }
 
 export type CategoryMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugCategory?: Prisma.SortOrder
   image?: Prisma.SortOrder
 }
 
 export type CategoryMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugCategory?: Prisma.SortOrder
   image?: Prisma.SortOrder
 }
 
@@ -312,14 +312,14 @@ export type CategoryUpdateOneRequiredWithoutRecipesNestedInput = {
 export type CategoryCreateWithoutRecipesInput = {
   id?: string
   name: string
-  slug: string
+  slugCategory: string
   image?: string | null
 }
 
 export type CategoryUncheckedCreateWithoutRecipesInput = {
   id?: string
   name: string
-  slug: string
+  slugCategory: string
   image?: string | null
 }
 
@@ -342,14 +342,14 @@ export type CategoryUpdateToOneWithWhereWithoutRecipesInput = {
 export type CategoryUpdateWithoutRecipesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugCategory?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CategoryUncheckedUpdateWithoutRecipesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugCategory?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -387,7 +387,7 @@ export type CategoryCountOutputTypeCountRecipesArgs<ExtArgs extends runtime.Type
 export type CategorySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  slug?: boolean
+  slugCategory?: boolean
   image?: boolean
   recipes?: boolean | Prisma.Category$recipesArgs<ExtArgs>
   _count?: boolean | Prisma.CategoryCountOutputTypeDefaultArgs<ExtArgs>
@@ -396,25 +396,25 @@ export type CategorySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 export type CategorySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  slug?: boolean
+  slugCategory?: boolean
   image?: boolean
 }, ExtArgs["result"]["category"]>
 
 export type CategorySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  slug?: boolean
+  slugCategory?: boolean
   image?: boolean
 }, ExtArgs["result"]["category"]>
 
 export type CategorySelectScalar = {
   id?: boolean
   name?: boolean
-  slug?: boolean
+  slugCategory?: boolean
   image?: boolean
 }
 
-export type CategoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "image", ExtArgs["result"]["category"]>
+export type CategoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slugCategory" | "image", ExtArgs["result"]["category"]>
 export type CategoryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   recipes?: boolean | Prisma.Category$recipesArgs<ExtArgs>
   _count?: boolean | Prisma.CategoryCountOutputTypeDefaultArgs<ExtArgs>
@@ -430,7 +430,7 @@ export type $CategoryPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
-    slug: string
+    slugCategory: string
     image: string | null
   }, ExtArgs["result"]["category"]>
   composites: {}
@@ -858,7 +858,7 @@ export interface Prisma__CategoryClient<T, Null = never, ExtArgs extends runtime
 export interface CategoryFieldRefs {
   readonly id: Prisma.FieldRef<"Category", 'String'>
   readonly name: Prisma.FieldRef<"Category", 'String'>
-  readonly slug: Prisma.FieldRef<"Category", 'String'>
+  readonly slugCategory: Prisma.FieldRef<"Category", 'String'>
   readonly image: Prisma.FieldRef<"Category", 'String'>
 }
     
@@ -1094,6 +1094,7 @@ export type CategoryCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * The data used to create many Categories.
    */
   data: Prisma.CategoryCreateManyInput | Prisma.CategoryCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1112,6 +1113,7 @@ export type CategoryCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extens
    * The data used to create many Categories.
    */
   data: Prisma.CategoryCreateManyInput | Prisma.CategoryCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

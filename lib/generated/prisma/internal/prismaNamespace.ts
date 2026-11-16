@@ -399,6 +399,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Recipe: 'Recipe',
   Ingredient: 'Ingredient',
+  RecipeIngredient: 'RecipeIngredient',
   Step: 'Step',
   Category: 'Category',
   CategoryToRecipe: 'CategoryToRecipe',
@@ -421,7 +422,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "recipe" | "ingredient" | "step" | "category" | "categoryToRecipe" | "tag" | "tagToRecipe" | "allergen" | "ingredientAllergen"
+    modelProps: "recipe" | "ingredient" | "recipeIngredient" | "step" | "category" | "categoryToRecipe" | "tag" | "tagToRecipe" | "allergen" | "ingredientAllergen"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -570,6 +571,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.IngredientCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.IngredientCountAggregateOutputType> | number
+        }
+      }
+    }
+    RecipeIngredient: {
+      payload: Prisma.$RecipeIngredientPayload<ExtArgs>
+      fields: Prisma.RecipeIngredientFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RecipeIngredientFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RecipeIngredientFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+        }
+        findFirst: {
+          args: Prisma.RecipeIngredientFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RecipeIngredientFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+        }
+        findMany: {
+          args: Prisma.RecipeIngredientFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>[]
+        }
+        create: {
+          args: Prisma.RecipeIngredientCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+        }
+        createMany: {
+          args: Prisma.RecipeIngredientCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RecipeIngredientCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>[]
+        }
+        delete: {
+          args: Prisma.RecipeIngredientDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+        }
+        update: {
+          args: Prisma.RecipeIngredientUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+        }
+        deleteMany: {
+          args: Prisma.RecipeIngredientDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RecipeIngredientUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RecipeIngredientUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>[]
+        }
+        upsert: {
+          args: Prisma.RecipeIngredientUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RecipeIngredientPayload>
+        }
+        aggregate: {
+          args: Prisma.RecipeIngredientAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRecipeIngredient>
+        }
+        groupBy: {
+          args: Prisma.RecipeIngredientGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RecipeIngredientGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RecipeIngredientCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RecipeIngredientCountAggregateOutputType> | number
         }
       }
     }
@@ -1121,6 +1196,9 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
  */
 
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
+  ReadUncommitted: 'ReadUncommitted',
+  ReadCommitted: 'ReadCommitted',
+  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 } as const)
 
@@ -1129,8 +1207,9 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const RecipeScalarFieldEnum = {
   id: 'id',
+  slugRecipe: 'slugRecipe',
+  displayOrder: 'displayOrder',
   title: 'title',
-  slug: 'slug',
   description: 'description',
   image: 'image',
   prepTime: 'prepTime',
@@ -1147,16 +1226,35 @@ export type RecipeScalarFieldEnum = (typeof RecipeScalarFieldEnum)[keyof typeof 
 
 export const IngredientScalarFieldEnum = {
   id: 'id',
-  slug: 'slug',
+  slugIngredient: 'slugIngredient',
+  displayOrder: 'displayOrder',
+  type: 'type',
   name: 'name',
-  description: 'description',
   image: 'image',
-  amount: 'amount',
-  unit: 'unit',
-  recipeId: 'recipeId'
+  calories: 'calories',
+  protein: 'protein',
+  carbohydrates: 'carbohydrates',
+  sugars: 'sugars',
+  fat: 'fat',
+  saturatedFat: 'saturatedFat',
+  fiber: 'fiber',
+  salt: 'salt'
 } as const
 
 export type IngredientScalarFieldEnum = (typeof IngredientScalarFieldEnum)[keyof typeof IngredientScalarFieldEnum]
+
+
+export const RecipeIngredientScalarFieldEnum = {
+  id: 'id',
+  recipeId: 'recipeId',
+  ingredientId: 'ingredientId',
+  amount: 'amount',
+  unit: 'unit',
+  note: 'note',
+  position: 'position'
+} as const
+
+export type RecipeIngredientScalarFieldEnum = (typeof RecipeIngredientScalarFieldEnum)[keyof typeof RecipeIngredientScalarFieldEnum]
 
 
 export const StepScalarFieldEnum = {
@@ -1173,7 +1271,7 @@ export type StepScalarFieldEnum = (typeof StepScalarFieldEnum)[keyof typeof Step
 export const CategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  slug: 'slug',
+  slugCategory: 'slugCategory',
   image: 'image'
 } as const
 
@@ -1191,7 +1289,7 @@ export type CategoryToRecipeScalarFieldEnum = (typeof CategoryToRecipeScalarFiel
 export const TagScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  slug: 'slug'
+  slugTag: 'slugTag'
 } as const
 
 export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
@@ -1207,8 +1305,10 @@ export type TagToRecipeScalarFieldEnum = (typeof TagToRecipeScalarFieldEnum)[key
 
 export const AllergenScalarFieldEnum = {
   id: 'id',
+  displayOrder: 'displayOrder',
   code: 'code',
   name: 'name',
+  description: 'description',
   icon: 'icon'
 } as const
 
@@ -1229,6 +1329,14 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
 export const NullsOrder = {
@@ -1253,9 +1361,23 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
 
 
 /**
+ * Reference to a field of type 'String[]'
+ */
+export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Int[]'
+ */
+export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -1267,9 +1389,37 @@ export type EnumDifficultyFieldRefInput<$PrismaModel> = FieldRefInputType<$Prism
 
 
 /**
+ * Reference to a field of type 'Difficulty[]'
+ */
+export type ListEnumDifficultyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Difficulty[]'>
+    
+
+
+/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IngredientType'
+ */
+export type EnumIngredientTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IngredientType'>
+    
+
+
+/**
+ * Reference to a field of type 'IngredientType[]'
+ */
+export type ListEnumIngredientTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IngredientType[]'>
     
 
 
@@ -1281,6 +1431,13 @@ export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
 
 
 /**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
  * Reference to a field of type 'Unit'
  */
 export type EnumUnitFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Unit'>
@@ -1288,9 +1445,23 @@ export type EnumUnitFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
 
 
 /**
+ * Reference to a field of type 'Unit[]'
+ */
+export type ListEnumUnitFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Unit[]'>
+    
+
+
+/**
  * Reference to a field of type 'AllergenCode'
  */
 export type EnumAllergenCodeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AllergenCode'>
+    
+
+
+/**
+ * Reference to a field of type 'AllergenCode[]'
+ */
+export type ListEnumAllergenCodeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AllergenCode[]'>
     
 
 /**
@@ -1446,6 +1617,7 @@ export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaC
 export type GlobalOmitConfig = {
   recipe?: Prisma.RecipeOmit
   ingredient?: Prisma.IngredientOmit
+  recipeIngredient?: Prisma.RecipeIngredientOmit
   step?: Prisma.StepOmit
   category?: Prisma.CategoryOmit
   categoryToRecipe?: Prisma.CategoryToRecipeOmit

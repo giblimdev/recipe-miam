@@ -359,6 +359,7 @@ export type IngredientAllergenCreateOrConnectWithoutIngredientInput = {
 
 export type IngredientAllergenCreateManyIngredientInputEnvelope = {
   data: Prisma.IngredientAllergenCreateManyIngredientInput | Prisma.IngredientAllergenCreateManyIngredientInput[]
+  skipDuplicates?: boolean
 }
 
 export type IngredientAllergenUpsertWithWhereUniqueWithoutIngredientInput = {
@@ -400,6 +401,7 @@ export type IngredientAllergenCreateOrConnectWithoutAllergenInput = {
 
 export type IngredientAllergenCreateManyAllergenInputEnvelope = {
   data: Prisma.IngredientAllergenCreateManyAllergenInput | Prisma.IngredientAllergenCreateManyAllergenInput[]
+  skipDuplicates?: boolean
 }
 
 export type IngredientAllergenUpsertWithWhereUniqueWithoutAllergenInput = {
@@ -1162,6 +1164,7 @@ export type IngredientAllergenCreateManyArgs<ExtArgs extends runtime.Types.Exten
    * The data used to create many IngredientAllergens.
    */
   data: Prisma.IngredientAllergenCreateManyInput | Prisma.IngredientAllergenCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1180,6 +1183,7 @@ export type IngredientAllergenCreateManyAndReturnArgs<ExtArgs extends runtime.Ty
    * The data used to create many IngredientAllergens.
    */
   data: Prisma.IngredientAllergenCreateManyInput | Prisma.IngredientAllergenCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

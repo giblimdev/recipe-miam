@@ -359,6 +359,7 @@ export type TagToRecipeCreateOrConnectWithoutRecipeInput = {
 
 export type TagToRecipeCreateManyRecipeInputEnvelope = {
   data: Prisma.TagToRecipeCreateManyRecipeInput | Prisma.TagToRecipeCreateManyRecipeInput[]
+  skipDuplicates?: boolean
 }
 
 export type TagToRecipeUpsertWithWhereUniqueWithoutRecipeInput = {
@@ -400,6 +401,7 @@ export type TagToRecipeCreateOrConnectWithoutTagInput = {
 
 export type TagToRecipeCreateManyTagInputEnvelope = {
   data: Prisma.TagToRecipeCreateManyTagInput | Prisma.TagToRecipeCreateManyTagInput[]
+  skipDuplicates?: boolean
 }
 
 export type TagToRecipeUpsertWithWhereUniqueWithoutTagInput = {
@@ -1162,6 +1164,7 @@ export type TagToRecipeCreateManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * The data used to create many TagToRecipes.
    */
   data: Prisma.TagToRecipeCreateManyInput | Prisma.TagToRecipeCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1180,6 +1183,7 @@ export type TagToRecipeCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Ext
    * The data used to create many TagToRecipes.
    */
   data: Prisma.TagToRecipeCreateManyInput | Prisma.TagToRecipeCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -27,19 +27,19 @@ export type AggregateTag = {
 export type TagMinAggregateOutputType = {
   id: string | null
   name: string | null
-  slug: string | null
+  slugTag: string | null
 }
 
 export type TagMaxAggregateOutputType = {
   id: string | null
   name: string | null
-  slug: string | null
+  slugTag: string | null
 }
 
 export type TagCountAggregateOutputType = {
   id: number
   name: number
-  slug: number
+  slugTag: number
   _all: number
 }
 
@@ -47,19 +47,19 @@ export type TagCountAggregateOutputType = {
 export type TagMinAggregateInputType = {
   id?: true
   name?: true
-  slug?: true
+  slugTag?: true
 }
 
 export type TagMaxAggregateInputType = {
   id?: true
   name?: true
-  slug?: true
+  slugTag?: true
 }
 
 export type TagCountAggregateInputType = {
   id?: true
   name?: true
-  slug?: true
+  slugTag?: true
   _all?: true
 }
 
@@ -138,7 +138,7 @@ export type TagGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
 export type TagGroupByOutputType = {
   id: string
   name: string
-  slug: string
+  slugTag: string
   _count: TagCountAggregateOutputType | null
   _min: TagMinAggregateOutputType | null
   _max: TagMaxAggregateOutputType | null
@@ -165,31 +165,31 @@ export type TagWhereInput = {
   NOT?: Prisma.TagWhereInput | Prisma.TagWhereInput[]
   id?: Prisma.StringFilter<"Tag"> | string
   name?: Prisma.StringFilter<"Tag"> | string
-  slug?: Prisma.StringFilter<"Tag"> | string
+  slugTag?: Prisma.StringFilter<"Tag"> | string
   recipes?: Prisma.TagToRecipeListRelationFilter
 }
 
 export type TagOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugTag?: Prisma.SortOrder
   recipes?: Prisma.TagToRecipeOrderByRelationAggregateInput
 }
 
 export type TagWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   name?: string
-  slug?: string
+  slugTag?: string
   AND?: Prisma.TagWhereInput | Prisma.TagWhereInput[]
   OR?: Prisma.TagWhereInput[]
   NOT?: Prisma.TagWhereInput | Prisma.TagWhereInput[]
   recipes?: Prisma.TagToRecipeListRelationFilter
-}, "id" | "name" | "slug">
+}, "id" | "name" | "slugTag">
 
 export type TagOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugTag?: Prisma.SortOrder
   _count?: Prisma.TagCountOrderByAggregateInput
   _max?: Prisma.TagMaxOrderByAggregateInput
   _min?: Prisma.TagMinOrderByAggregateInput
@@ -201,71 +201,71 @@ export type TagScalarWhereWithAggregatesInput = {
   NOT?: Prisma.TagScalarWhereWithAggregatesInput | Prisma.TagScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Tag"> | string
   name?: Prisma.StringWithAggregatesFilter<"Tag"> | string
-  slug?: Prisma.StringWithAggregatesFilter<"Tag"> | string
+  slugTag?: Prisma.StringWithAggregatesFilter<"Tag"> | string
 }
 
 export type TagCreateInput = {
   id?: string
   name: string
-  slug: string
+  slugTag: string
   recipes?: Prisma.TagToRecipeCreateNestedManyWithoutTagInput
 }
 
 export type TagUncheckedCreateInput = {
   id?: string
   name: string
-  slug: string
+  slugTag: string
   recipes?: Prisma.TagToRecipeUncheckedCreateNestedManyWithoutTagInput
 }
 
 export type TagUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugTag?: Prisma.StringFieldUpdateOperationsInput | string
   recipes?: Prisma.TagToRecipeUpdateManyWithoutTagNestedInput
 }
 
 export type TagUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugTag?: Prisma.StringFieldUpdateOperationsInput | string
   recipes?: Prisma.TagToRecipeUncheckedUpdateManyWithoutTagNestedInput
 }
 
 export type TagCreateManyInput = {
   id?: string
   name: string
-  slug: string
+  slugTag: string
 }
 
 export type TagUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugTag?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TagUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugTag?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TagCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugTag?: Prisma.SortOrder
 }
 
 export type TagMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugTag?: Prisma.SortOrder
 }
 
 export type TagMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
+  slugTag?: Prisma.SortOrder
 }
 
 export type TagScalarRelationFilter = {
@@ -290,13 +290,13 @@ export type TagUpdateOneRequiredWithoutRecipesNestedInput = {
 export type TagCreateWithoutRecipesInput = {
   id?: string
   name: string
-  slug: string
+  slugTag: string
 }
 
 export type TagUncheckedCreateWithoutRecipesInput = {
   id?: string
   name: string
-  slug: string
+  slugTag: string
 }
 
 export type TagCreateOrConnectWithoutRecipesInput = {
@@ -318,13 +318,13 @@ export type TagUpdateToOneWithWhereWithoutRecipesInput = {
 export type TagUpdateWithoutRecipesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugTag?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TagUncheckedUpdateWithoutRecipesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  slugTag?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -361,7 +361,7 @@ export type TagCountOutputTypeCountRecipesArgs<ExtArgs extends runtime.Types.Ext
 export type TagSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  slug?: boolean
+  slugTag?: boolean
   recipes?: boolean | Prisma.Tag$recipesArgs<ExtArgs>
   _count?: boolean | Prisma.TagCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tag"]>
@@ -369,22 +369,22 @@ export type TagSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
 export type TagSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  slug?: boolean
+  slugTag?: boolean
 }, ExtArgs["result"]["tag"]>
 
 export type TagSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  slug?: boolean
+  slugTag?: boolean
 }, ExtArgs["result"]["tag"]>
 
 export type TagSelectScalar = {
   id?: boolean
   name?: boolean
-  slug?: boolean
+  slugTag?: boolean
 }
 
-export type TagOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug", ExtArgs["result"]["tag"]>
+export type TagOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slugTag", ExtArgs["result"]["tag"]>
 export type TagInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   recipes?: boolean | Prisma.Tag$recipesArgs<ExtArgs>
   _count?: boolean | Prisma.TagCountOutputTypeDefaultArgs<ExtArgs>
@@ -400,7 +400,7 @@ export type $TagPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
-    slug: string
+    slugTag: string
   }, ExtArgs["result"]["tag"]>
   composites: {}
 }
@@ -827,7 +827,7 @@ export interface Prisma__TagClient<T, Null = never, ExtArgs extends runtime.Type
 export interface TagFieldRefs {
   readonly id: Prisma.FieldRef<"Tag", 'String'>
   readonly name: Prisma.FieldRef<"Tag", 'String'>
-  readonly slug: Prisma.FieldRef<"Tag", 'String'>
+  readonly slugTag: Prisma.FieldRef<"Tag", 'String'>
 }
     
 
@@ -1062,6 +1062,7 @@ export type TagCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * The data used to create many Tags.
    */
   data: Prisma.TagCreateManyInput | Prisma.TagCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1080,6 +1081,7 @@ export type TagCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.
    * The data used to create many Tags.
    */
   data: Prisma.TagCreateManyInput | Prisma.TagCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

@@ -1,0 +1,26 @@
+{
+  "exclusions": [
+    ".windsurf",
+    ".claude",
+    ".agents",
+    ".git",
+    ".next",
+    ".turbo",
+    "build",
+    "dist",
+    "node_modules",
+    "data",
+    "lib/generated",
+    "*.gif",
+    "*.ico",
+    "*.jpeg",
+    "*.jpg",
+    "*.lock",
+    "*.log",
+    "*.png",
+    "*.svg",
+    "*.ttf",
+    "*.woff",
+    "*.woff2"
+  ]
+}

@@ -359,6 +359,7 @@ export type CategoryToRecipeCreateOrConnectWithoutRecipeInput = {
 
 export type CategoryToRecipeCreateManyRecipeInputEnvelope = {
   data: Prisma.CategoryToRecipeCreateManyRecipeInput | Prisma.CategoryToRecipeCreateManyRecipeInput[]
+  skipDuplicates?: boolean
 }
 
 export type CategoryToRecipeUpsertWithWhereUniqueWithoutRecipeInput = {
@@ -400,6 +401,7 @@ export type CategoryToRecipeCreateOrConnectWithoutCategoryInput = {
 
 export type CategoryToRecipeCreateManyCategoryInputEnvelope = {
   data: Prisma.CategoryToRecipeCreateManyCategoryInput | Prisma.CategoryToRecipeCreateManyCategoryInput[]
+  skipDuplicates?: boolean
 }
 
 export type CategoryToRecipeUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -1162,6 +1164,7 @@ export type CategoryToRecipeCreateManyArgs<ExtArgs extends runtime.Types.Extensi
    * The data used to create many CategoryToRecipes.
    */
   data: Prisma.CategoryToRecipeCreateManyInput | Prisma.CategoryToRecipeCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1180,6 +1183,7 @@ export type CategoryToRecipeCreateManyAndReturnArgs<ExtArgs extends runtime.Type
    * The data used to create many CategoryToRecipes.
    */
   data: Prisma.CategoryToRecipeCreateManyInput | Prisma.CategoryToRecipeCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

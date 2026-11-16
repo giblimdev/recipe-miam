@@ -1,0 +1,894 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-14T21:00:00.000Z",
+  "count": 79,
+  "ingredients": [
+    {
+      "slug": "farine-de-ble-t55",
+      "name": "Farine de blé T55",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 0,
+      "nutrition": { "calories": 364, "protein": 10, "carbohydrates": 76, "sugars": 0.5, "fat": 1, "saturatedFat": 0.2, "fiber": 2.7, "salt": 0 },
+      "allergens": ["GLUTEN"]
+    },
+    {
+      "slug": "beurre-doux",
+      "name": "Beurre doux",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 1,
+      "nutrition": { "calories": 717, "protein": 0.7, "carbohydrates": 0.1, "sugars": 0.1, "fat": 81, "saturatedFat": 51, "fiber": 0, "salt": 0.02 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "oeuf",
+      "name": "Œuf",
+      "type": "OEUF",
+      "image": null,
+      "displayOrder": 2,
+      "nutrition": { "calories": 155, "protein": 13, "carbohydrates": 1.1, "sugars": 1.1, "fat": 11, "saturatedFat": 3.3, "fiber": 0, "salt": 0.12 },
+      "allergens": ["EGGS"]
+    },
+    {
+      "slug": "sucre-en-poudre",
+      "name": "Sucre en poudre",
+      "type": "SUCRE",
+      "image": null,
+      "displayOrder": 3,
+      "nutrition": { "calories": 400, "protein": 0, "carbohydrates": 100, "sugars": 100, "fat": 0, "saturatedFat": 0, "fiber": 0, "salt": 0 },
+      "allergens": []
+    },
+    {
+      "slug": "lait-entier",
+      "name": "Lait entier",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 4,
+      "nutrition": { "calories": 64, "protein": 3.2, "carbohydrates": 4.8, "sugars": 4.8, "fat": 3.6, "saturatedFat": 2.3, "fiber": 0, "salt": 0.1 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "huile-d-olive",
+      "name": "Huile d'olive",
+      "type": "MATIERE_GRASSE",
+      "image": null,
+      "displayOrder": 5,
+      "nutrition": { "calories": 884, "protein": 0, "carbohydrates": 0, "sugars": 0, "fat": 100, "saturatedFat": 14, "fiber": 0, "salt": 0 },
+      "allergens": []
+    },
+    {
+      "slug": "tomate",
+      "name": "Tomate",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 6,
+      "nutrition": { "calories": 18, "protein": 0.9, "carbohydrates": 3.9, "sugars": 2.6, "fat": 0.2, "saturatedFat": 0, "fiber": 1.2, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "ail",
+      "name": "Ail",
+      "type": "CONDIMENT",
+      "image": null,
+      "displayOrder": 7,
+      "nutrition": { "calories": 149, "protein": 6.4, "carbohydrates": 33, "sugars": 1, "fat": 0.5, "saturatedFat": 0.1, "fiber": 2.1, "salt": 0.02 },
+      "allergens": []
+    },
+
+    {
+      "slug": "pate-a-pizza",
+      "name": "Pâte à pizza",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 8,
+      "nutrition": { "calories": 266, "protein": 9, "carbohydrates": 51, "sugars": 2, "fat": 2.5, "saturatedFat": 0.5, "fiber": 2, "salt": 1.2 },
+      "allergens": ["GLUTEN"]
+    },
+    {
+      "slug": "sauce-tomate",
+      "name": "Sauce tomate",
+      "type": "CONDIMENT",
+      "image": null,
+      "displayOrder": 9,
+      "nutrition": { "calories": 40, "protein": 1.5, "carbohydrates": 6, "sugars": 4, "fat": 1, "saturatedFat": 0.2, "fiber": 1.5, "salt": 0.9 },
+      "allergens": []
+    },
+    {
+      "slug": "mozzarella",
+      "name": "Mozzarella",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 10,
+      "nutrition": { "calories": 280, "protein": 18, "carbohydrates": 3.1, "sugars": 1, "fat": 22, "saturatedFat": 13, "fiber": 0, "salt": 0.6 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "parmesan",
+      "name": "Parmesan",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 11,
+      "nutrition": { "calories": 431, "protein": 38, "carbohydrates": 4.1, "sugars": 0.8, "fat": 29, "saturatedFat": 19, "fiber": 0, "salt": 1.6 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "basilic-frais",
+      "name": "Basilic frais",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 12,
+      "nutrition": { "calories": 23, "protein": 3.2, "carbohydrates": 2.6, "sugars": 0.3, "fat": 0.6, "saturatedFat": 0, "fiber": 1.6, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "origan-seche",
+      "name": "Origan séché",
+      "type": "EPICE",
+      "image": null,
+      "displayOrder": 13,
+      "nutrition": { "calories": 265, "protein": 9, "carbohydrates": 64, "sugars": 4, "fat": 4.3, "saturatedFat": 0.5, "fiber": 42, "salt": 0.02 },
+      "allergens": []
+    },
+    {
+      "slug": "jambon-blanc",
+      "name": "Jambon blanc",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 14,
+      "nutrition": { "calories": 116, "protein": 20, "carbohydrates": 0.5, "sugars": 0.5, "fat": 4, "saturatedFat": 1.5, "fiber": 0, "salt": 2 },
+      "allergens": []
+    },
+    {
+      "slug": "champignon-de-paris",
+      "name": "Champignon de Paris",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 15,
+      "nutrition": { "calories": 22, "protein": 3.1, "carbohydrates": 3.3, "sugars": 2, "fat": 0.3, "saturatedFat": 0, "fiber": 1, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "olive-noire",
+      "name": "Olive noire",
+      "type": "AUTRE",
+      "image": null,
+      "displayOrder": 16,
+      "nutrition": { "calories": 115, "protein": 0.8, "carbohydrates": 6, "sugars": 0, "fat": 11, "saturatedFat": 1.4, "fiber": 3.2, "salt": 3.9 },
+      "allergens": []
+    },
+    {
+      "slug": "poivron",
+      "name": "Poivron",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 17,
+      "nutrition": { "calories": 31, "protein": 1, "carbohydrates": 6, "sugars": 4.2, "fat": 0.3, "saturatedFat": 0, "fiber": 2.1, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "ananas",
+      "name": "Ananas",
+      "type": "FRUIT",
+      "image": null,
+      "displayOrder": 18,
+      "nutrition": { "calories": 50, "protein": 0.5, "carbohydrates": 13, "sugars": 10, "fat": 0.1, "saturatedFat": 0, "fiber": 1.4, "salt": 0 },
+      "allergens": []
+    },
+    {
+      "slug": "pepperoni",
+      "name": "Pepperoni",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 19,
+      "nutrition": { "calories": 494, "protein": 20, "carbohydrates": 1.2, "sugars": 0, "fat": 44, "saturatedFat": 16, "fiber": 0, "salt": 4 },
+      "allergens": []
+    },
+    {
+      "slug": "chorizo",
+      "name": "Chorizo",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 20,
+      "nutrition": { "calories": 455, "protein": 24, "carbohydrates": 2, "sugars": 1, "fat": 39, "saturatedFat": 14, "fiber": 0, "salt": 3.5 },
+      "allergens": []
+    },
+    {
+      "slug": "gorgonzola",
+      "name": "Gorgonzola",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 21,
+      "nutrition": { "calories": 353, "protein": 21, "carbohydrates": 2.3, "sugars": 0.5, "fat": 29, "saturatedFat": 19, "fiber": 0, "salt": 1.8 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "fromage-de-chevre",
+      "name": "Fromage de chèvre",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 22,
+      "nutrition": { "calories": 264, "protein": 21, "carbohydrates": 0.1, "sugars": 0.1, "fat": 21, "saturatedFat": 14, "fiber": 0, "salt": 1.5 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "roquette",
+      "name": "Roquette",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 23,
+      "nutrition": { "calories": 25, "protein": 2.6, "carbohydrates": 3.7, "sugars": 2, "fat": 0.7, "saturatedFat": 0.1, "fiber": 1.6, "salt": 0.07 },
+      "allergens": []
+    },
+    {
+      "slug": "tomate-cerise",
+      "name": "Tomate cerise",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 24,
+      "nutrition": { "calories": 18, "protein": 0.9, "carbohydrates": 3.9, "sugars": 2.6, "fat": 0.2, "saturatedFat": 0, "fiber": 1.2, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "oignon-rouge",
+      "name": "Oignon rouge",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 25,
+      "nutrition": { "calories": 40, "protein": 1.1, "carbohydrates": 9.3, "sugars": 4.2, "fat": 0.1, "saturatedFat": 0, "fiber": 1.7, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "mais",
+      "name": "Maïs",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 26,
+      "nutrition": { "calories": 86, "protein": 3.3, "carbohydrates": 19, "sugars": 3.2, "fat": 1.4, "saturatedFat": 0.2, "fiber": 2, "salt": 0.02 },
+      "allergens": []
+    },
+    {
+      "slug": "thon-en-conserve",
+      "name": "Thon en conserve",
+      "type": "POISSON",
+      "image": null,
+      "displayOrder": 27,
+      "nutrition": { "calories": 132, "protein": 28, "carbohydrates": 0, "sugars": 0, "fat": 1.3, "saturatedFat": 0.3, "fiber": 0, "salt": 1 },
+      "allergens": ["FISH"]
+    },
+    {
+      "slug": "anchois",
+      "name": "Anchois",
+      "type": "POISSON",
+      "image": null,
+      "displayOrder": 28,
+      "nutrition": { "calories": 131, "protein": 20, "carbohydrates": 0, "sugars": 0, "fat": 4.8, "saturatedFat": 1.3, "fiber": 0, "salt": 10 },
+      "allergens": ["FISH"]
+    },
+    {
+      "slug": "capres",
+      "name": "Câpres",
+      "type": "CONDIMENT",
+      "image": null,
+      "displayOrder": 29,
+      "nutrition": { "calories": 23, "protein": 2.4, "carbohydrates": 4.9, "sugars": 1.7, "fat": 0.9, "saturatedFat": 0.2, "fiber": 3.2, "salt": 8 },
+      "allergens": []
+    },
+
+    {
+      "slug": "thym",
+      "name": "Thym",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 30,
+      "nutrition": { "calories": 101, "protein": 5.6, "carbohydrates": 24, "sugars": 0.5, "fat": 1.7, "saturatedFat": 0.5, "fiber": 14, "salt": 0.02 },
+      "allergens": []
+    },
+    {
+      "slug": "romarin",
+      "name": "Romarin",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 31,
+      "nutrition": { "calories": 131, "protein": 3.3, "carbohydrates": 21, "sugars": 0.5, "fat": 5.9, "saturatedFat": 2.8, "fiber": 14, "salt": 0.03 },
+      "allergens": []
+    },
+    {
+      "slug": "laurier",
+      "name": "Laurier",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 32,
+      "nutrition": { "calories": 313, "protein": 7.6, "carbohydrates": 75, "sugars": 0, "fat": 8.4, "saturatedFat": 2.3, "fiber": 26, "salt": 0.02 },
+      "allergens": []
+    },
+    {
+      "slug": "persil",
+      "name": "Persil",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 33,
+      "nutrition": { "calories": 36, "protein": 3, "carbohydrates": 6.3, "sugars": 0.9, "fat": 0.8, "saturatedFat": 0.1, "fiber": 3.3, "salt": 0.14 },
+      "allergens": []
+    },
+    {
+      "slug": "ciboulette",
+      "name": "Ciboulette",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 34,
+      "nutrition": { "calories": 30, "protein": 3.3, "carbohydrates": 4.4, "sugars": 1.9, "fat": 0.7, "saturatedFat": 0.1, "fiber": 2.5, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "estragon",
+      "name": "Estragon",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 35,
+      "nutrition": { "calories": 295, "protein": 23, "carbohydrates": 50, "sugars": 0, "fat": 7.2, "saturatedFat": 1.9, "fiber": 7.4, "salt": 0.16 },
+      "allergens": []
+    },
+    {
+      "slug": "sauge",
+      "name": "Sauge",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 36,
+      "nutrition": { "calories": 315, "protein": 11, "carbohydrates": 61, "sugars": 0.3, "fat": 13, "saturatedFat": 7, "fiber": 40, "salt": 0.03 },
+      "allergens": []
+    },
+    {
+      "slug": "coriandre-fraiche",
+      "name": "Coriandre fraîche",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 37,
+      "nutrition": { "calories": 23, "protein": 2.1, "carbohydrates": 3.7, "sugars": 0.9, "fat": 0.5, "saturatedFat": 0, "fiber": 2.8, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "paprika-fume",
+      "name": "Paprika fumé",
+      "type": "EPICE",
+      "image": null,
+      "displayOrder": 38,
+      "nutrition": { "calories": 282, "protein": 14, "carbohydrates": 54, "sugars": 10, "fat": 13, "saturatedFat": 2.1, "fiber": 35, "salt": 0.07 },
+      "allergens": []
+    },
+    {
+      "slug": "cumin",
+      "name": "Cumin",
+      "type": "EPICE",
+      "image": null,
+      "displayOrder": 39,
+      "nutrition": { "calories": 375, "protein": 18, "carbohydrates": 44, "sugars": 2.3, "fat": 22, "saturatedFat": 1.5, "fiber": 11, "salt": 0.04 },
+      "allergens": []
+    },
+    {
+      "slug": "curry",
+      "name": "Curry",
+      "type": "EPICE",
+      "image": null,
+      "displayOrder": 40,
+      "nutrition": { "calories": 325, "protein": 14, "carbohydrates": 56, "sugars": 2.8, "fat": 14, "saturatedFat": 1.6, "fiber": 53, "salt": 0.1 },
+      "allergens": []
+    },
+    {
+      "slug": "curcuma",
+      "name": "Curcuma",
+      "type": "EPICE",
+      "image": null,
+      "displayOrder": 41,
+      "nutrition": { "calories": 354, "protein": 8, "carbohydrates": 65, "sugars": 3.2, "fat": 10, "saturatedFat": 3.1, "fiber": 21, "salt": 0.07 },
+      "allergens": []
+    },
+    {
+      "slug": "poivre-noir",
+      "name": "Poivre noir",
+      "type": "EPICE",
+      "image": null,
+      "displayOrder": 42,
+      "nutrition": { "calories": 251, "protein": 10, "carbohydrates": 64, "sugars": 0.6, "fat": 3.3, "saturatedFat": 1.4, "fiber": 25, "salt": 0.04 },
+      "allergens": []
+    },
+    {
+      "slug": "sel-fin",
+      "name": "Sel fin",
+      "type": "CONDIMENT",
+      "image": null,
+      "displayOrder": 43,
+      "nutrition": { "calories": 0, "protein": 0, "carbohydrates": 0, "sugars": 0, "fat": 0, "saturatedFat": 0, "fiber": 0, "salt": 100 },
+      "allergens": []
+    },
+    {
+      "slug": "muscade",
+      "name": "Muscade",
+      "type": "EPICE",
+      "image": null,
+      "displayOrder": 44,
+      "nutrition": { "calories": 525, "protein": 5.8, "carbohydrates": 49, "sugars": 28, "fat": 36, "saturatedFat": 26, "fiber": 21, "salt": 0.04 },
+      "allergens": []
+    },
+
+    {
+      "slug": "echalote",
+      "name": "Échalote",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 45,
+      "nutrition": { "calories": 72, "protein": 2.5, "carbohydrates": 17, "sugars": 8, "fat": 0.1, "saturatedFat": 0, "fiber": 3.2, "salt": 0.03 },
+      "allergens": []
+    },
+    {
+      "slug": "oignon-jaune",
+      "name": "Oignon jaune",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 46,
+      "nutrition": { "calories": 40, "protein": 1.1, "carbohydrates": 9.3, "sugars": 4.2, "fat": 0.1, "saturatedFat": 0, "fiber": 1.7, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "carotte",
+      "name": "Carotte",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 47,
+      "nutrition": { "calories": 41, "protein": 0.9, "carbohydrates": 10, "sugars": 4.7, "fat": 0.2, "saturatedFat": 0, "fiber": 2.8, "salt": 0.17 },
+      "allergens": []
+    },
+    {
+      "slug": "poireau",
+      "name": "Poireau",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 48,
+      "nutrition": { "calories": 61, "protein": 1.5, "carbohydrates": 14, "sugars": 3.9, "fat": 0.3, "saturatedFat": 0, "fiber": 1.8, "salt": 0.05 },
+      "allergens": []
+    },
+    {
+      "slug": "celeri-branche",
+      "name": "Céleri branche",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 49,
+      "nutrition": { "calories": 16, "protein": 0.7, "carbohydrates": 3, "sugars": 1.3, "fat": 0.2, "saturatedFat": 0, "fiber": 1.6, "salt": 0.2 },
+      "allergens": ["CELERY"]
+    },
+    {
+      "slug": "courgette",
+      "name": "Courgette",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 50,
+      "nutrition": { "calories": 17, "protein": 1.2, "carbohydrates": 3.1, "sugars": 2.5, "fat": 0.3, "saturatedFat": 0.1, "fiber": 1, "salt": 0.02 },
+      "allergens": []
+    },
+    {
+      "slug": "aubergine",
+      "name": "Aubergine",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 51,
+      "nutrition": { "calories": 25, "protein": 1, "carbohydrates": 6, "sugars": 3.5, "fat": 0.2, "saturatedFat": 0, "fiber": 3, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "haricot-vert",
+      "name": "Haricot vert",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 52,
+      "nutrition": { "calories": 31, "protein": 1.8, "carbohydrates": 7, "sugars": 3.3, "fat": 0.2, "saturatedFat": 0, "fiber": 2.7, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "pomme-de-terre",
+      "name": "Pomme de terre",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 53,
+      "nutrition": { "calories": 77, "protein": 2, "carbohydrates": 17, "sugars": 0.8, "fat": 0.1, "saturatedFat": 0, "fiber": 2.2, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "creme-fraiche",
+      "name": "Crème fraîche",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 54,
+      "nutrition": { "calories": 292, "protein": 2.4, "carbohydrates": 2.9, "sugars": 2.9, "fat": 30, "saturatedFat": 19, "fiber": 0, "salt": 0.05 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "vin-blanc-sec",
+      "name": "Vin blanc sec",
+      "type": "LIQUIDE",
+      "image": null,
+      "displayOrder": 55,
+      "nutrition": { "calories": 82, "protein": 0.1, "carbohydrates": 2.6, "sugars": 1, "fat": 0, "saturatedFat": 0, "fiber": 0, "salt": 0 },
+      "allergens": ["SULPHITES"]
+    },
+    {
+      "slug": "moutarde-de-dijon",
+      "name": "Moutarde de Dijon",
+      "type": "CONDIMENT",
+      "image": null,
+      "displayOrder": 56,
+      "nutrition": { "calories": 66, "protein": 4, "carbohydrates": 5, "sugars": 2, "fat": 3.3, "saturatedFat": 0.3, "fiber": 2.6, "salt": 6 },
+      "allergens": ["MUSTARD"]
+    },
+    {
+      "slug": "vinaigre-de-vin",
+      "name": "Vinaigre de vin",
+      "type": "CONDIMENT",
+      "image": null,
+      "displayOrder": 57,
+      "nutrition": { "calories": 19, "protein": 0, "carbohydrates": 0.6, "sugars": 0.6, "fat": 0, "saturatedFat": 0, "fiber": 0, "salt": 0.01 },
+      "allergens": ["SULPHITES"]
+    },
+    {
+      "slug": "gruyere",
+      "name": "Gruyère",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 58,
+      "nutrition": { "calories": 413, "protein": 30, "carbohydrates": 0.4, "sugars": 0.4, "fat": 32, "saturatedFat": 20, "fiber": 0, "salt": 1.2 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "comte",
+      "name": "Comté",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 59,
+      "nutrition": { "calories": 413, "protein": 27, "carbohydrates": 0.2, "sugars": 0.2, "fat": 34, "saturatedFat": 21, "fiber": 0, "salt": 1.1 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "baguette",
+      "name": "Baguette",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 60,
+      "nutrition": { "calories": 263, "protein": 8.5, "carbohydrates": 55, "sugars": 3, "fat": 1.2, "saturatedFat": 0.3, "fiber": 2.5, "salt": 1.4 },
+      "allergens": ["GLUTEN"]
+    },
+    {
+      "slug": "jambon-cru",
+      "name": "Jambon cru",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 61,
+      "nutrition": { "calories": 241, "protein": 28, "carbohydrates": 0.3, "sugars": 0.3, "fat": 14, "saturatedFat": 5, "fiber": 0, "salt": 4.5 },
+      "allergens": []
+    },
+    {
+      "slug": "poitrine-fumee",
+      "name": "Poitrine fumée",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 62,
+      "nutrition": { "calories": 393, "protein": 14, "carbohydrates": 0.5, "sugars": 0.5, "fat": 38, "saturatedFat": 14, "fiber": 0, "salt": 2.5 },
+      "allergens": []
+    },
+
+    {
+      "slug": "masa-arepa",
+      "name": "Masa (arepa)",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 63,
+      "nutrition": { "calories": 364, "protein": 8, "carbohydrates": 76, "sugars": 0.5, "fat": 3.5, "saturatedFat": 0.5, "fiber": 4, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "plantain",
+      "name": "Plantain",
+      "type": "FRUIT",
+      "image": null,
+      "displayOrder": 64,
+      "nutrition": { "calories": 122, "protein": 1.3, "carbohydrates": 32, "sugars": 15, "fat": 0.4, "saturatedFat": 0.1, "fiber": 2.3, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "yuca",
+      "name": "Yuca (manioc)",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 65,
+      "nutrition": { "calories": 160, "protein": 1.4, "carbohydrates": 38, "sugars": 1.7, "fat": 0.3, "saturatedFat": 0.1, "fiber": 1.8, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "patate-douce",
+      "name": "Patate douce",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 66,
+      "nutrition": { "calories": 86, "protein": 1.6, "carbohydrates": 20, "sugars": 4.2, "fat": 0.1, "saturatedFat": 0, "fiber": 3, "salt": 0.03 },
+      "allergens": []
+    },
+    {
+      "slug": "haricot-rouge",
+      "name": "Haricot rouge",
+      "type": "LEGUMINEUSE",
+      "image": null,
+      "displayOrder": 67,
+      "nutrition": { "calories": 127, "protein": 8.7, "carbohydrates": 23, "sugars": 0.3, "fat": 0.5, "saturatedFat": 0.1, "fiber": 6.4, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "riz-blanc",
+      "name": "Riz blanc",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 68,
+      "nutrition": { "calories": 130, "protein": 2.7, "carbohydrates": 28, "sugars": 0.1, "fat": 0.3, "saturatedFat": 0.1, "fiber": 0.4, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "oignon-blanc",
+      "name": "Oignon blanc",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 69,
+      "nutrition": { "calories": 40, "protein": 1.1, "carbohydrates": 9.3, "sugars": 4.2, "fat": 0.1, "saturatedFat": 0, "fiber": 1.7, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "avocat",
+      "name": "Avocat",
+      "type": "FRUIT",
+      "image": null,
+      "displayOrder": 70,
+      "nutrition": { "calories": 160, "protein": 2, "carbohydrates": 8.5, "sugars": 0.7, "fat": 15, "saturatedFat": 2.1, "fiber": 6.7, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "citron-vert",
+      "name": "Citron vert",
+      "type": "FRUIT",
+      "image": null,
+      "displayOrder": 71,
+      "nutrition": { "calories": 30, "protein": 0.7, "carbohydrates": 11, "sugars": 1.7, "fat": 0.2, "saturatedFat": 0, "fiber": 2.8, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "panela",
+      "name": "Panela (sucre non raffiné)",
+      "type": "SUCRE",
+      "image": null,
+      "displayOrder": 72,
+      "nutrition": { "calories": 380, "protein": 0.2, "carbohydrates": 98, "sugars": 95, "fat": 0.1, "saturatedFat": 0, "fiber": 0, "salt": 0.02 },
+      "allergens": []
+    },
+    {
+      "slug": "aji",
+      "name": "Ají (piment colombien)",
+      "type": "CONDIMENT",
+      "image": null,
+      "displayOrder": 73,
+      "nutrition": { "calories": 40, "protein": 1.9, "carbohydrates": 8.8, "sugars": 5.3, "fat": 0.4, "saturatedFat": 0.1, "fiber": 1.5, "salt": 0.02 },
+      "allergens": []
+    },
+    {
+      "slug": "queso-fresco",
+      "name": "Queso fresco",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 74,
+      "nutrition": { "calories": 250, "protein": 17, "carbohydrates": 2.5, "sugars": 2, "fat": 19, "saturatedFat": 12, "fiber": 0, "salt": 1 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "chorizo-colombien",
+      "name": "Chorizo colombien",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 75,
+      "nutrition": { "calories": 455, "protein": 24, "carbohydrates": 2, "sugars": 1, "fat": 39, "saturatedFat": 14, "fiber": 0, "salt": 3.5 },
+      "allergens": []
+    },
+    {
+      "slug": "chicharron",
+      "name": "Chicharrón",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 76,
+      "nutrition": { "calories": 520, "protein": 25, "carbohydrates": 0.5, "sugars": 0, "fat": 46, "saturatedFat": 17, "fiber": 0, "salt": 2 },
+      "allergens": []
+    },
+    {
+      "slug": "morcilla",
+      "name": "Morcilla",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 77,
+      "nutrition": { "calories": 379, "protein": 15, "carbohydrates": 5, "sugars": 1, "fat": 33, "saturatedFat": 12, "fiber": 0, "salt": 1.5 },
+      "allergens": []
+    },
+    {
+      "slug": "lulo",
+      "name": "Lulo",
+      "type": "FRUIT",
+      "image": null,
+      "displayOrder": 78,
+      "nutrition": { "calories": 25, "protein": 0.5, "carbohydrates": 5.4, "sugars": 3.5, "fat": 0.2, "saturatedFat": 0, "fiber": 1, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "guayaba",
+      "name": "Goyave (guayaba)",
+      "type": "FRUIT",
+      "image": null,
+      "displayOrder": 79,
+      "nutrition": { "calories": 68, "protein": 2.6, "carbohydrates": 14, "sugars": 8.9, "fat": 1, "saturatedFat": 0.3, "fiber": 5.4, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "maracuya",
+      "name": "Fruit de la passion (maracuyá)",
+      "type": "FRUIT",
+      "image": null,
+      "displayOrder": 80,
+      "nutrition": { "calories": 97, "protein": 2.2, "carbohydrates": 23, "sugars": 11, "fat": 0.7, "saturatedFat": 0.1, "fiber": 10, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "mazorca",
+      "name": "Maïs tendre (mazorca)",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 81,
+      "nutrition": { "calories": 86, "protein": 3.3, "carbohydrates": 19, "sugars": 3.2, "fat": 1.4, "saturatedFat": 0.2, "fiber": 2, "salt": 0.02 },
+      "allergens": []
+    },
+
+    {
+      "slug": "blanc-de-poulet",
+      "name": "Blanc de poulet",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 82,
+      "nutrition": { "calories": 165, "protein": 31, "carbohydrates": 0, "sugars": 0, "fat": 3.6, "saturatedFat": 1, "fiber": 0, "salt": 0.2 },
+      "allergens": []
+    },
+    {
+      "slug": "cuisse-de-poulet",
+      "name": "Cuisse de poulet",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 83,
+      "nutrition": { "calories": 209, "protein": 26, "carbohydrates": 0, "sugars": 0, "fat": 11, "saturatedFat": 3.1, "fiber": 0, "salt": 0.2 },
+      "allergens": []
+    },
+    {
+      "slug": "poulet-entier",
+      "name": "Poulet entier",
+      "type": "VIANDE",
+      "image": null,
+      "displayOrder": 84,
+      "nutrition": { "calories": 215, "protein": 27, "carbohydrates": 0, "sugars": 0, "fat": 12, "saturatedFat": 3.5, "fiber": 0, "salt": 0.2 },
+      "allergens": []
+    },
+    {
+      "slug": "quinoa-blanc",
+      "name": "Quinoa blanc",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 85,
+      "nutrition": { "calories": 368, "protein": 14, "carbohydrates": 64, "sugars": 6, "fat": 6, "saturatedFat": 0.7, "fiber": 7, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "quinoa-rouge",
+      "name": "Quinoa rouge",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 86,
+      "nutrition": { "calories": 368, "protein": 14, "carbohydrates": 64, "sugars": 6, "fat": 6, "saturatedFat": 0.7, "fiber": 7, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "quinoa-tricolore",
+      "name": "Quinoa tricolore",
+      "type": "FECULENT",
+      "image": null,
+      "displayOrder": 87,
+      "nutrition": { "calories": 368, "protein": 14, "carbohydrates": 64, "sugars": 6, "fat": 6, "saturatedFat": 0.7, "fiber": 7, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "huile-de-coco",
+      "name": "Huile de coco",
+      "type": "MATIERE_GRASSE",
+      "image": null,
+      "displayOrder": 88,
+      "nutrition": { "calories": 892, "protein": 0, "carbohydrates": 0, "sugars": 0, "fat": 99, "saturatedFat": 87, "fiber": 0, "salt": 0 },
+      "allergens": []
+    },
+    {
+      "slug": "sauce-soja",
+      "name": "Sauce soja",
+      "type": "CONDIMENT",
+      "image": null,
+      "displayOrder": 89,
+      "nutrition": { "calories": 53, "protein": 8, "carbohydrates": 4.9, "sugars": 0.4, "fat": 0.1, "saturatedFat": 0, "fiber": 0.8, "salt": 15 },
+      "allergens": ["SOYBEANS", "GLUTEN"]
+    },
+    {
+      "slug": "miel",
+      "name": "Miel",
+      "type": "SUCRE",
+      "image": null,
+      "displayOrder": 90,
+      "nutrition": { "calories": 304, "protein": 0.3, "carbohydrates": 82, "sugars": 82, "fat": 0, "saturatedFat": 0, "fiber": 0.2, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "gingembre",
+      "name": "Gingembre",
+      "type": "EPICE",
+      "image": null,
+      "displayOrder": 91,
+      "nutrition": { "calories": 80, "protein": 1.8, "carbohydrates": 18, "sugars": 1.7, "fat": 0.8, "saturatedFat": 0.2, "fiber": 2, "salt": 0.03 },
+      "allergens": []
+    },
+    {
+      "slug": "citron-jaune",
+      "name": "Citron jaune",
+      "type": "FRUIT",
+      "image": null,
+      "displayOrder": 92,
+      "nutrition": { "calories": 29, "protein": 1.1, "carbohydrates": 9.3, "sugars": 2.5, "fat": 0.3, "saturatedFat": 0, "fiber": 2.8, "salt": 0.01 },
+      "allergens": []
+    },
+    {
+      "slug": "brocoli",
+      "name": "Brocoli",
+      "type": "LEGUME",
+      "image": null,
+      "displayOrder": 93,
+      "nutrition": { "calories": 34, "protein": 2.8, "carbohydrates": 6.6, "sugars": 1.7, "fat": 0.4, "saturatedFat": 0, "fiber": 2.6, "salt": 0.08 },
+      "allergens": []
+    },
+    {
+      "slug": "pois-chiche",
+      "name": "Pois chiche",
+      "type": "LEGUMINEUSE",
+      "image": null,
+      "displayOrder": 94,
+      "nutrition": { "calories": 164, "protein": 8.9, "carbohydrates": 27, "sugars": 4.8, "fat": 2.6, "saturatedFat": 0.3, "fiber": 7.6, "salt": 0.02 },
+      "allergens": []
+    },
+    {
+      "slug": "menthe-fraiche",
+      "name": "Menthe fraîche",
+      "type": "HERBE",
+      "image": null,
+      "displayOrder": 95,
+      "nutrition": { "calories": 70, "protein": 3.8, "carbohydrates": 15, "sugars": 0, "fat": 0.9, "saturatedFat": 0.2, "fiber": 8, "salt": 0.07 },
+      "allergens": []
+    },
+    {
+      "slug": "yaourt-grec",
+      "name": "Yaourt grec",
+      "type": "PRODUITS_LAITIERS",
+      "image": null,
+      "displayOrder": 96,
+      "nutrition": { "calories": 97, "protein": 9, "carbohydrates": 3.6, "sugars": 3.2, "fat": 5, "saturatedFat": 3.2, "fiber": 0, "salt": 0.1 },
+      "allergens": ["MILK"]
+    },
+    {
+      "slug": "tahini",
+      "name": "Tahini",
+      "type": "MATIERE_GRASSE",
+      "image": null,
+      "displayOrder": 97,
+      "nutrition": { "calories": 595, "protein": 17, "carbohydrates": 21, "sugars": 0.5, "fat": 54, "saturatedFat": 7.6, "fiber": 9.3, "salt": 0.03 },
+      "allergens": ["SESAME"]
+    }
+  ]
+}

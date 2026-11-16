@@ -20,51 +20,81 @@ export type AllergenModel = runtime.Types.Result.DefaultSelection<Prisma.$Allerg
 
 export type AggregateAllergen = {
   _count: AllergenCountAggregateOutputType | null
+  _avg: AllergenAvgAggregateOutputType | null
+  _sum: AllergenSumAggregateOutputType | null
   _min: AllergenMinAggregateOutputType | null
   _max: AllergenMaxAggregateOutputType | null
 }
 
+export type AllergenAvgAggregateOutputType = {
+  displayOrder: number | null
+}
+
+export type AllergenSumAggregateOutputType = {
+  displayOrder: number | null
+}
+
 export type AllergenMinAggregateOutputType = {
   id: string | null
+  displayOrder: number | null
   code: $Enums.AllergenCode | null
   name: string | null
+  description: string | null
   icon: string | null
 }
 
 export type AllergenMaxAggregateOutputType = {
   id: string | null
+  displayOrder: number | null
   code: $Enums.AllergenCode | null
   name: string | null
+  description: string | null
   icon: string | null
 }
 
 export type AllergenCountAggregateOutputType = {
   id: number
+  displayOrder: number
   code: number
   name: number
+  description: number
   icon: number
   _all: number
 }
 
 
+export type AllergenAvgAggregateInputType = {
+  displayOrder?: true
+}
+
+export type AllergenSumAggregateInputType = {
+  displayOrder?: true
+}
+
 export type AllergenMinAggregateInputType = {
   id?: true
+  displayOrder?: true
   code?: true
   name?: true
+  description?: true
   icon?: true
 }
 
 export type AllergenMaxAggregateInputType = {
   id?: true
+  displayOrder?: true
   code?: true
   name?: true
+  description?: true
   icon?: true
 }
 
 export type AllergenCountAggregateInputType = {
   id?: true
+  displayOrder?: true
   code?: true
   name?: true
+  description?: true
   icon?: true
   _all?: true
 }
@@ -107,6 +137,18 @@ export type AllergenAggregateArgs<ExtArgs extends runtime.Types.Extensions.Inter
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: AllergenAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: AllergenSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: AllergenMinAggregateInputType
@@ -137,16 +179,22 @@ export type AllergenGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   _count?: AllergenCountAggregateInputType | true
+  _avg?: AllergenAvgAggregateInputType
+  _sum?: AllergenSumAggregateInputType
   _min?: AllergenMinAggregateInputType
   _max?: AllergenMaxAggregateInputType
 }
 
 export type AllergenGroupByOutputType = {
   id: string
+  displayOrder: number
   code: $Enums.AllergenCode
   name: string
+  description: string | null
   icon: string | null
   _count: AllergenCountAggregateOutputType | null
+  _avg: AllergenAvgAggregateOutputType | null
+  _sum: AllergenSumAggregateOutputType | null
   _min: AllergenMinAggregateOutputType | null
   _max: AllergenMaxAggregateOutputType | null
 }
@@ -171,16 +219,20 @@ export type AllergenWhereInput = {
   OR?: Prisma.AllergenWhereInput[]
   NOT?: Prisma.AllergenWhereInput | Prisma.AllergenWhereInput[]
   id?: Prisma.StringFilter<"Allergen"> | string
+  displayOrder?: Prisma.IntFilter<"Allergen"> | number
   code?: Prisma.EnumAllergenCodeFilter<"Allergen"> | $Enums.AllergenCode
   name?: Prisma.StringFilter<"Allergen"> | string
+  description?: Prisma.StringNullableFilter<"Allergen"> | string | null
   icon?: Prisma.StringNullableFilter<"Allergen"> | string | null
   ingredients?: Prisma.IngredientAllergenListRelationFilter
 }
 
 export type AllergenOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
   code?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
   icon?: Prisma.SortOrderInput | Prisma.SortOrder
   ingredients?: Prisma.IngredientAllergenOrderByRelationAggregateInput
 }
@@ -191,19 +243,25 @@ export type AllergenWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.AllergenWhereInput | Prisma.AllergenWhereInput[]
   OR?: Prisma.AllergenWhereInput[]
   NOT?: Prisma.AllergenWhereInput | Prisma.AllergenWhereInput[]
+  displayOrder?: Prisma.IntFilter<"Allergen"> | number
   name?: Prisma.StringFilter<"Allergen"> | string
+  description?: Prisma.StringNullableFilter<"Allergen"> | string | null
   icon?: Prisma.StringNullableFilter<"Allergen"> | string | null
   ingredients?: Prisma.IngredientAllergenListRelationFilter
 }, "id" | "code">
 
 export type AllergenOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
   code?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
   icon?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.AllergenCountOrderByAggregateInput
+  _avg?: Prisma.AllergenAvgOrderByAggregateInput
   _max?: Prisma.AllergenMaxOrderByAggregateInput
   _min?: Prisma.AllergenMinOrderByAggregateInput
+  _sum?: Prisma.AllergenSumOrderByAggregateInput
 }
 
 export type AllergenScalarWhereWithAggregatesInput = {
@@ -211,83 +269,113 @@ export type AllergenScalarWhereWithAggregatesInput = {
   OR?: Prisma.AllergenScalarWhereWithAggregatesInput[]
   NOT?: Prisma.AllergenScalarWhereWithAggregatesInput | Prisma.AllergenScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Allergen"> | string
+  displayOrder?: Prisma.IntWithAggregatesFilter<"Allergen"> | number
   code?: Prisma.EnumAllergenCodeWithAggregatesFilter<"Allergen"> | $Enums.AllergenCode
   name?: Prisma.StringWithAggregatesFilter<"Allergen"> | string
+  description?: Prisma.StringNullableWithAggregatesFilter<"Allergen"> | string | null
   icon?: Prisma.StringNullableWithAggregatesFilter<"Allergen"> | string | null
 }
 
 export type AllergenCreateInput = {
   id?: string
+  displayOrder: number
   code: $Enums.AllergenCode
   name: string
+  description?: string | null
   icon?: string | null
   ingredients?: Prisma.IngredientAllergenCreateNestedManyWithoutAllergenInput
 }
 
 export type AllergenUncheckedCreateInput = {
   id?: string
+  displayOrder: number
   code: $Enums.AllergenCode
   name: string
+  description?: string | null
   icon?: string | null
   ingredients?: Prisma.IngredientAllergenUncheckedCreateNestedManyWithoutAllergenInput
 }
 
 export type AllergenUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.EnumAllergenCodeFieldUpdateOperationsInput | $Enums.AllergenCode
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ingredients?: Prisma.IngredientAllergenUpdateManyWithoutAllergenNestedInput
 }
 
 export type AllergenUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.EnumAllergenCodeFieldUpdateOperationsInput | $Enums.AllergenCode
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ingredients?: Prisma.IngredientAllergenUncheckedUpdateManyWithoutAllergenNestedInput
 }
 
 export type AllergenCreateManyInput = {
   id?: string
+  displayOrder: number
   code: $Enums.AllergenCode
   name: string
+  description?: string | null
   icon?: string | null
 }
 
 export type AllergenUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.EnumAllergenCodeFieldUpdateOperationsInput | $Enums.AllergenCode
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AllergenUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.EnumAllergenCodeFieldUpdateOperationsInput | $Enums.AllergenCode
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AllergenCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
   code?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   icon?: Prisma.SortOrder
+}
+
+export type AllergenAvgOrderByAggregateInput = {
+  displayOrder?: Prisma.SortOrder
 }
 
 export type AllergenMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
   code?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   icon?: Prisma.SortOrder
 }
 
 export type AllergenMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  displayOrder?: Prisma.SortOrder
   code?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   icon?: Prisma.SortOrder
+}
+
+export type AllergenSumOrderByAggregateInput = {
+  displayOrder?: Prisma.SortOrder
 }
 
 export type AllergenScalarRelationFilter = {
@@ -315,15 +403,19 @@ export type AllergenUpdateOneRequiredWithoutIngredientsNestedInput = {
 
 export type AllergenCreateWithoutIngredientsInput = {
   id?: string
+  displayOrder: number
   code: $Enums.AllergenCode
   name: string
+  description?: string | null
   icon?: string | null
 }
 
 export type AllergenUncheckedCreateWithoutIngredientsInput = {
   id?: string
+  displayOrder: number
   code: $Enums.AllergenCode
   name: string
+  description?: string | null
   icon?: string | null
 }
 
@@ -345,15 +437,19 @@ export type AllergenUpdateToOneWithWhereWithoutIngredientsInput = {
 
 export type AllergenUpdateWithoutIngredientsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.EnumAllergenCodeFieldUpdateOperationsInput | $Enums.AllergenCode
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AllergenUncheckedUpdateWithoutIngredientsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  displayOrder?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.EnumAllergenCodeFieldUpdateOperationsInput | $Enums.AllergenCode
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -390,8 +486,10 @@ export type AllergenCountOutputTypeCountIngredientsArgs<ExtArgs extends runtime.
 
 export type AllergenSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  displayOrder?: boolean
   code?: boolean
   name?: boolean
+  description?: boolean
   icon?: boolean
   ingredients?: boolean | Prisma.Allergen$ingredientsArgs<ExtArgs>
   _count?: boolean | Prisma.AllergenCountOutputTypeDefaultArgs<ExtArgs>
@@ -399,26 +497,32 @@ export type AllergenSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 
 export type AllergenSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  displayOrder?: boolean
   code?: boolean
   name?: boolean
+  description?: boolean
   icon?: boolean
 }, ExtArgs["result"]["allergen"]>
 
 export type AllergenSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  displayOrder?: boolean
   code?: boolean
   name?: boolean
+  description?: boolean
   icon?: boolean
 }, ExtArgs["result"]["allergen"]>
 
 export type AllergenSelectScalar = {
   id?: boolean
+  displayOrder?: boolean
   code?: boolean
   name?: boolean
+  description?: boolean
   icon?: boolean
 }
 
-export type AllergenOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "icon", ExtArgs["result"]["allergen"]>
+export type AllergenOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "displayOrder" | "code" | "name" | "description" | "icon", ExtArgs["result"]["allergen"]>
 export type AllergenInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   ingredients?: boolean | Prisma.Allergen$ingredientsArgs<ExtArgs>
   _count?: boolean | Prisma.AllergenCountOutputTypeDefaultArgs<ExtArgs>
@@ -433,8 +537,10 @@ export type $AllergenPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    displayOrder: number
     code: $Enums.AllergenCode
     name: string
+    description: string | null
     icon: string | null
   }, ExtArgs["result"]["allergen"]>
   composites: {}
@@ -861,8 +967,10 @@ export interface Prisma__AllergenClient<T, Null = never, ExtArgs extends runtime
  */
 export interface AllergenFieldRefs {
   readonly id: Prisma.FieldRef<"Allergen", 'String'>
+  readonly displayOrder: Prisma.FieldRef<"Allergen", 'Int'>
   readonly code: Prisma.FieldRef<"Allergen", 'AllergenCode'>
   readonly name: Prisma.FieldRef<"Allergen", 'String'>
+  readonly description: Prisma.FieldRef<"Allergen", 'String'>
   readonly icon: Prisma.FieldRef<"Allergen", 'String'>
 }
     
@@ -1098,6 +1206,7 @@ export type AllergenCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * The data used to create many Allergens.
    */
   data: Prisma.AllergenCreateManyInput | Prisma.AllergenCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1116,6 +1225,7 @@ export type AllergenCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extens
    * The data used to create many Allergens.
    */
   data: Prisma.AllergenCreateManyInput | Prisma.AllergenCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

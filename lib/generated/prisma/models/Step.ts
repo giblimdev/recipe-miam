@@ -230,6 +230,7 @@ export type StepOrderByWithRelationInput = {
 
 export type StepWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  recipeId_stepNumber?: Prisma.StepRecipeIdStepNumberCompoundUniqueInput
   AND?: Prisma.StepWhereInput | Prisma.StepWhereInput[]
   OR?: Prisma.StepWhereInput[]
   NOT?: Prisma.StepWhereInput | Prisma.StepWhereInput[]
@@ -238,7 +239,7 @@ export type StepWhereUniqueInput = Prisma.AtLeast<{
   image?: Prisma.StringNullableFilter<"Step"> | string | null
   recipeId?: Prisma.StringFilter<"Step"> | string
   recipe?: Prisma.XOR<Prisma.RecipeScalarRelationFilter, Prisma.RecipeWhereInput>
-}, "id">
+}, "id" | "recipeId_stepNumber">
 
 export type StepOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -327,6 +328,11 @@ export type StepListRelationFilter = {
 
 export type StepOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type StepRecipeIdStepNumberCompoundUniqueInput = {
+  recipeId: string
+  stepNumber: number
 }
 
 export type StepCountOrderByAggregateInput = {
@@ -424,6 +430,7 @@ export type StepCreateOrConnectWithoutRecipeInput = {
 
 export type StepCreateManyRecipeInputEnvelope = {
   data: Prisma.StepCreateManyRecipeInput | Prisma.StepCreateManyRecipeInput[]
+  skipDuplicates?: boolean
 }
 
 export type StepUpsertWithWhereUniqueWithoutRecipeInput = {
@@ -1203,6 +1210,7 @@ export type StepCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * The data used to create many Steps.
    */
   data: Prisma.StepCreateManyInput | Prisma.StepCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1221,6 +1229,7 @@ export type StepCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions
    * The data used to create many Steps.
    */
   data: Prisma.StepCreateManyInput | Prisma.StepCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

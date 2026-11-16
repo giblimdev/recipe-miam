@@ -37,6 +37,29 @@ export const Unit = {
 export type Unit = (typeof Unit)[keyof typeof Unit]
 
 
+export const IngredientType = {
+  LEGUME: 'LEGUME',
+  FRUIT: 'FRUIT',
+  VIANDE: 'VIANDE',
+  POISSON: 'POISSON',
+  FRUITS_DE_MER: 'FRUITS_DE_MER',
+  OEUF: 'OEUF',
+  PRODUITS_LAITIERS: 'PRODUITS_LAITIERS',
+  FECULENT: 'FECULENT',
+  LEGUMINEUSE: 'LEGUMINEUSE',
+  FRUITS_A_COQUE_GRAINES: 'FRUITS_A_COQUE_GRAINES',
+  EPICE: 'EPICE',
+  HERBE: 'HERBE',
+  MATIERE_GRASSE: 'MATIERE_GRASSE',
+  SUCRE: 'SUCRE',
+  CONDIMENT: 'CONDIMENT',
+  LIQUIDE: 'LIQUIDE',
+  AUTRE: 'AUTRE'
+} as const
+
+export type IngredientType = (typeof IngredientType)[keyof typeof IngredientType]
+
+
 export const AllergenCode = {
   GLUTEN: 'GLUTEN',
   CRUSTACEANS: 'CRUSTACEANS',

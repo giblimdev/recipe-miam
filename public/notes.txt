@@ -1,3 +1,5 @@
+brain stormin / N'EST pas LA BASE DE VERITE
+ 
 app/
 ├── layout.tsx                 # Layout racine (obligatoire) : header, footer, providers
 ├── page.tsx                   # 🏠 Accueil : hero, recettes mises en avant, catégories populaires
@@ -5,11 +7,10 @@ app/
 ├── error.tsx                  # Error boundary globale
 ├── not-found.tsx              # Page 404 personnalisée
 │
-├── (recettes)/                # Route group : n'affecte pas l'URL, permet de partager un layout
+├── recettes/                # Route group : n'affecte pas l'URL, permet de partager un layout
 │   ├── layout.tsx            # Layout commun aux pages de recettes (ex: barre de filtres)
-│   ├── recettes/
-│   │   ├── page.tsx          # 📋 Liste de toutes les recettes (grille, filtres, tri)
-│   │   └── [slug]/
+│   ├── page.tsx          # 📋 Liste de toutes les recettes (grille, filtres, tri)
+│   └── [slug]/
 │   │       ├── page.tsx      # 🍽️ Détail d'une recette (ingrédients, étapes, allergènes)
 │   │       ├── loading.tsx   # Skeleton spécifique au détail d'une recette
 │   │       └── not-found.tsx # 404 si le slug n'existe pas
@@ -25,15 +26,14 @@ app/
 ├── recherche/
 │   └── page.tsx              # 🔍 Page de recherche avancée (par titre, ingrédient, tag)
 │
-├── (utilisateur)/            # Route group pour les pages liées au compte
+├── user/            # Route group pour les pages liées au compte
 │   ├── layout.tsx            # Layout avec navigation secondaire (ex: sidebar compte)
 │   ├── favoris/
 │   │   └── page.tsx          # ❤️ Recettes sauvegardées par l'utilisateur (si fonctionnalité)
 │   └── mes-recettes/
 │       └── page.tsx          # 👨‍🍳 Recettes créées par l'utilisateur (CRUD)
 │
-└── (admin)/                  # Route group pour l'administration (optionnel)
-    └── admin/
+└── admin/
         ├── layout.tsx        # Layout admin (protégé par auth)
         ├── ingredients/
         │   └── page.tsx      # Gestion des ingrédients (référentiel)
@@ -105,7 +105,13 @@ Server Components par défaut : Toutes les pages qui lisent des données (accuei
 
 Colocation : Placez les composants spécifiques à une page dans un sous-dossier _components/ à côté du page.tsx. Par exemple, recettes/[slug]/_components/IngredientList.tsx et StepList.tsx. Le préfixe _ empêche Next.js de les considérer comme des routes.
 
-Route groups (...) : Utilisez-les pour partager des layouts (ex: (recettes) pour la barre de filtres, (utilisateur) pour la sidebar compte) sans créer de segments d'URL supplémentaires.
 
 
 
+///
+app/admin/recipes/_components/RecipeForm.tsx	Image étape (si tu as un champ step.image)	"recipes"
+app/admin/ingredients/_components/IngredientManager.tsx	Image ingrédient	"ingredients"
+///
+
+//////
+//////
